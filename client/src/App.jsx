@@ -2,6 +2,7 @@ import { useState } from 'react'
 import  photo from './assets/photo.png'
 //import viteLogo from '/vite.svg'
 import './App.css'
+import MainComponent from './components/MainComponent/MainComponent'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +21,7 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+        <MainComponent />
        </section>
     </>
   )

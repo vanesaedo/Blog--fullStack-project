@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+const cors = require ('cors')
 
 // Rutas
 //const booksRoutes = require("./routes/books.routes")
@@ -9,7 +10,9 @@ const entriesRoutes = require("./routes/entries.routes")
 const authorsRoutes = require("./routes/authors.routes")
 
 //Middlewares
-app.use(express.json()); // Para parsear el body de las peticiones
+
+app.use(cors())
+//app.use(express.json()); // Para parsear el body de las peticiones
 
 /******RUTAS ******/
 
