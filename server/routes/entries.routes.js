@@ -2,6 +2,7 @@ const express = require('express');
 // Rutas de productos
 const entriesController = require("../controllers/entries.controller");
 const router = express.Router();
+const cors = ('require')
 
 router.get('/', entriesController.getEntries);
 router.post('/new/?', entriesController.createEntry);

@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import  photo from './assets/photo.png'
+const cors = require ('cors')
 //import viteLogo from '/vite.svg'
 import './App.css'
 import MainComponent from './components/MainComponent/MainComponent'
+
+app.use(cors())
 
 function App() {
   const [count, setCount] = useState(0)
