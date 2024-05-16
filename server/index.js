@@ -22,8 +22,7 @@ app.get("/", (req, res) => {
 });
 
 //API
-//app.use('/api/books',booksRoutes);
-//app.use('/api/products',productsRoutes);
+
 app.use('/api/entries',entriesRoutes);
 app.use('/api/authors',authorsRoutes);
 

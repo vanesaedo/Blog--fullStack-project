@@ -4,35 +4,33 @@ import { v4 as uuidv4 } from 'uuid';
 import EntryCard from "./EntryCard/EntryCard";
 
 
+
 const baseURL = "http://localhost:3000/api/entries";
 
 const MainComponent = () => {
 
   const [list, setList] = useState([]); // Lista de entries
 
-  const [value, setValue] = useState("");
-
-  const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
     e.preventDefault();
     const title = e.target.buscar.value
 
   // sacar por consola el valor del input
     console.log(title)
-
-  // FIltrar del array de entries el buscado
-  //....
-
+ 
+  // Filtrar del array de entries el buscado
+  const result = (list.filter((entry) => entry.title === title));
+  
   // saca por consola el array filtrado
-  //...
+    console.log(result);
 
   // Modificar el estado entries con el resultado de filtrado
-  //setValue(listado filtrado aqui!!!);
+
+ setList(result);
+  
   }
 
-
-
-
-  const handleChange = (event) => {
+  const handleChange = (e) => {
     console.log();
 
   }
