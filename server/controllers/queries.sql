@@ -16,6 +16,7 @@ CREATE TABLE entries (
   date date DEFAULT CURRENT_DATE,
   id_author int,
   category varchar(15),
+  entry_image varchar (255),
   FOREIGN KEY (id_author) REFERENCES authors(id_author),
   image varchar(255)
 );
@@ -36,11 +37,11 @@ VALUES
 -- Insertar datos en tabla entries
 INSERT INTO entries(title,content,id_author,category)
 VALUES 
-('Noticia: SOL en Madrid','Contenido noticia 1',(SELECT id_author FROM authors WHERE email='alejandru@thebridgeschool.es'),'Tiempo'),
-('Noticia: Un panda suelto por la ciudad','El panda se comió todas las frutas de una tienda',(SELECT id_author FROM authors WHERE email='birja@thebridgeschool.es'),'Sucesos'),
-('El rayo gana la champions','Victoria por goleada en la final de la champions',(SELECT id_author FROM authors WHERE email='albertu@thebridgeschool.es'),'Deportes'),
-('Amanece Madrid lleno de arena','La calima satura Madrid de arena. Pérdidas millonarias',(SELECT id_author FROM authors WHERE email='birja@thebridgeschool.es'),'Sucesos'),
-('Descubren el motor de agua','Fin de la gasolina. A partir de ahora usaremos agua en nuestros coches',(SELECT id_author FROM authors WHERE email='alvaru@thebridgeschool.es'),'Ciencia');
+('Noticia: SOL en Madrid','Contenido noticia 1',(SELECT id_author FROM authors WHERE email='alejandru@thebridgeschool.es'),'Tiempo', 'https://hips.hearstapps.com/harpersbazaar/assets/16/30/1469565407-hbz-brit-week-english-countryside-00-index.jpg'),
+('Noticia: Un panda suelto por la ciudad','El panda se comió todas las frutas de una tienda',(SELECT id_author FROM authors WHERE email='birja@thebridgeschool.es'),'Sucesos', 'https://www.travelstart.com.ng/blog/wp-content/uploads/2021/07/Untitled-design-3.png'),
+('El rayo gana la champions','Victoria por goleada en la final de la champions',(SELECT id_author FROM authors WHERE email='albertu@thebridgeschool.es'),'Deportes','https://kinsta.com/wp-content/uploads/2020/08/tiger-jpg.jpg'),
+('Amanece Madrid lleno de arena','La calima satura Madrid de arena. Pérdidas millonarias',(SELECT id_author FROM authors WHERE email='birja@thebridgeschool.es'),'Sucesos','https://www.shutterstock.com/image-illustration/abstract-wavy-background-multicolored-lines-260nw-2343316935.jpg'),
+('Descubren el motor de agua','Fin de la gasolina. A partir de ahora usaremos agua en nuestros coches',(SELECT id_author FROM authors WHERE email='alvaru@thebridgeschool.es'),'Ciencia','https://www.maestrosdelweb.com/images/2009/08/crayones_jpg.jpg');
 
 -- Buscar entries por email usuario
 SELECT * FROM entries WHERE id_author=(SELECT id_author FROM authors WHERE email='alejandro@thebridgeschool.es');
@@ -69,6 +70,7 @@ UPDATE entries
         content='Hello', 
         date='2014-04-16', 
         category='Coches',
+        entry_image='https://www.maestrosdelweb.com/images/2009/08/crayones_jpg.jpg'
         id_author=(SELECT id_author FROM authors WHERE email = 'alejandru@thebridgeschool.es')
     WHERE 
         title = 'Noticia: SOL en Madrid3';

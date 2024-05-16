@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.photo {
+  width: 20%;
+  height: auto; 
+}
