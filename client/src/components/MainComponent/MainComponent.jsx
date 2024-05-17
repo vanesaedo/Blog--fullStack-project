@@ -154,7 +154,7 @@ const MainComponent = () => {
       <button name="a-z" onClick={handleSortAsc}>A-Z</button>
       <button name="z-a" onClick={handleSortDesc}>Z-A</button>
     </section>
-
+    
     <article>
       {list.length !== 0 ?
         <ul>
