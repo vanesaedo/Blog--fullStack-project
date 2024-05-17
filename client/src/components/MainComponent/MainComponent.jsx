@@ -1,3 +1,4 @@
+import './MainComponent.css'
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from 'uuid';
@@ -10,29 +11,23 @@ const baseURL = "http://localhost:3000/api/entries";
 const MainComponent = () => {
 
   const [list, setList] = useState([]); // Lista de entries
+  const [selectedCategory, setSelectedCategory] = useState("")
 
-    const handleSubmit = (e) => {
+// ***************************************************************
+// ******************   GET ALL ENTRIES  *************************
+// ***************************************************************
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     const title = e.target.buscar.value
-
-  // sacar por consola el valor del input
+    // sacar por consola el valor del input
     console.log(title)
- 
-  // Filtrar del array de entries el buscado
-  const result = (list.filter((entry) => entry.title === title));
-  
-  // saca por consola el array filtrado
+    // Filtrar del array de entries el buscado
+    const result = (list.filter((entry) => entry.title === title));
+    // saca por consola el array filtrado
     console.log(result);
-
-  // Modificar el estado entries con el resultado de filtrado
-
- setList(result);
-  
-  }
-
-  const handleChange = (e) => {
-    console.log();
-
+    // Modificar el estado entries con el resultado de filtrado
+    setList(result);
   }
 
   useEffect(() => {
@@ -52,11 +47,52 @@ const MainComponent = () => {
     getEntries();
   }, []);
 
+
+// ***************************************************************
+// ***************** FILTER BY CATEGORY  *************************
+// ***************************************************************
+
+// Filtrar por categoria
+
+  const handleChangeCategory = (e) => {
+    const selectedValue = e.target.value;
+    console.log(e)
+    const filteredList = (list.filter((element) => element.category === selectedValue));
+    setList(filteredList)
+    
+  }
+
+  useEffect(() => {
+
+    console.log("Artículos por categoría:", list);
+  }, [list]);
+
+
+// ***************************************************************
+// ***********************   RETURN   ****************************
+// ***************************************************************
+
   return <>
-    <form className="searchForm" onSubmit={handleSubmit}>
-      <input type="text" name="buscar" onChange={handleChange}></input>
-      <button>Submit</button>
+    <section>
+      <label>Selecciona una categoría:
+        <select id="selectCategory" name="categories"         
+          onChange={handleChangeCategory}
+        >
+          <option value="Diseño">Diseño</option>
+          <option value="Ciencia">Ciencia</option>
+          <option value="Sucesos">Sucesos</option>
+          <option value="Deportes">Deportes</option>
+        </select>
+      </label>
+    </section>
+
+    <form className="searchTitle" onSubmit={handleSubmit}>
+      <label>Búsqueda por título:
+        <input type="text" name="buscar" id="buscar" ></input>
+      </label>
+      <button>Buscar</button>
     </form>
+
     <article>
       {list.length !== 0 ?
         <ul className="entry">
@@ -70,6 +106,6 @@ const MainComponent = () => {
 
       }  </article>
   </>
-}
+};
 
 export default MainComponent;
