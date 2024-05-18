@@ -10,7 +10,21 @@ const pool = new Pool({
 });
 
 // GET
-
+const getEntriesByEmail = async (email) => {
+  let client, result;
+  try {
+    client = await pool.connect(); // Espera a abrir conexion
+    const data = await client.query(queries.getEntriesByEmail, [email]);
+    console.log(data);
+    result = data.rows;
+  } catch (err) {
+    console.log(err);
+    throw err;
+  } finally {
+    client.release();
+  }
+  return result;
+};
 
 // GET
 const getAllEntries = async () => {
@@ -29,23 +43,6 @@ const getAllEntries = async () => {
   return result;
 };
 
-
-
-const getEntriesByEmail = async (email) => {
-  let client, result;
-  try {
-    client = await pool.connect(); // Espera a abrir conexion
-    const data = await client.query(queries.getEntriesByEmail, [email]);
-    console.log(data);
-    result = data.rows;
-  } catch (err) {
-    console.log(err);
-    throw err;
-  } finally {
-    client.release();
-  }
-  return result;
-};
 // CREATE
 const createEntry = async (entry) => {
   const { title, content, email, category, image } = entry;
@@ -112,9 +109,8 @@ const deleteEntryByTitle = async (title) => {
 
 
 const entries = {
-  getAllEntries,
-
   getEntriesByEmail,
+  getAllEntries,
   createEntry,
   updateEntry,
   deleteEntryByTitle

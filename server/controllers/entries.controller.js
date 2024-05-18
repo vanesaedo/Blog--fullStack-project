@@ -1,4 +1,3 @@
-const entries = require('../models/entries.model');
 const entry = require('../models/entries.model'); // Importar el modelo de la BBDD
 
 //getEntries
@@ -6,15 +5,10 @@ const entry = require('../models/entries.model'); // Importar el modelo de la BB
 //     busca por mail
 // else
 //     busca todo
-// GET http://localhost:3000/authors --> ALL
-const getAllEntries = async (req, res) => {
-    const entries = await entry.getAllEntries();
-    res.status(200).json(entries);
-}
 
 
-
-
+// GET http://localhost:3000/entries --> ALL
+// GET http://localhost:3000/entries?email=hola@gmail.com --> por email
 const getEntries = async (req, res) => {
     let entries;
     if (req.query.email) {
@@ -84,7 +78,6 @@ catch (error) {
 }
 }
 module.exports = {
-    getAllEntries,
     getEntries,
     createEntry,
     updateEntry,
