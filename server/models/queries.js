@@ -6,8 +6,15 @@ const queries = {
     ON e.id_author=a.id_author
     WHERE a.email=$1
     ORDER BY e.title;`,
+    
+    getEntriesByTitle: `
+    SELECT *
+    FROM entries 
+    WHERE title=$1
+    ORDER BY title;`,
+
   getAllEntries: `
-        SELECT e.title,e.content,e.date,e.category,a.name,a.surname,a.image
+        SELECT e.title,e.content,e.date,e.category,e.entry_image,a.name,a.surname,a.image
         FROM entries AS e
         INNER JOIN authors AS a
         ON e.id_author=a.id_author

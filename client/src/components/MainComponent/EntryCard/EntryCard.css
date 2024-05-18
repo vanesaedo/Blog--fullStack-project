@@ -1,0 +1,15 @@
+.entrycard {
+   
+    padding: 20px 60px;
+    margin: 40px; 
+    max-width:100%;
+    text-align: left;
+    background-color:white;
+    border-radius: 6px;
+
+    
+}
+img {
+    max-width: 100%;
+    height: auto; 
+}
