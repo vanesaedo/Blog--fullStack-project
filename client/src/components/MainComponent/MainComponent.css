@@ -1,4 +1,4 @@
-.searchTitle {
+.search {
     border:1px solid rgb(0, 0, 0);
     padding: 20px 60px;
     margin: 40px; 
@@ -6,4 +6,7 @@
     text-align: left;
     background-color:white;
     border-radius: 6px;  
+}
+img {
+    width: 100%;
 }

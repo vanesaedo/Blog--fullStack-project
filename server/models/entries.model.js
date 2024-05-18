@@ -1,16 +1,15 @@
 const { Pool } = require("pg");
-const queries = require("./queries"); // Queries SQL
+require('dotenv').config();
 
 const pool = new Pool({
-  host: "localhost",
-  user: "postgres",
-  port: "5432",
-  database: "postgres",
-  password: "123456",
+  host: process.env.PG_HOST,
+  port: process.env.PG_PORT,
+  database: process.env.PG_DATABASE,
+  user: process.env.PG_USER,
+  password: process.env.PG_PASSWORD,
 });
 
-// GET
-
+const queries = require("./queries"); // Queries SQL
 
 // GET
 const getAllEntries = async () => {
@@ -48,7 +47,7 @@ const getEntriesByEmail = async (email) => {
 };
 // CREATE
 const createEntry = async (entry) => {
-  const { title, content, email, category, image } = entry;
+  const { title, content, email, category, entry_image } = entry;
   let client, result;
   try {
     client = await pool.connect(); // Espera a abrir conexion
@@ -57,7 +56,7 @@ const createEntry = async (entry) => {
       content,
       email,
       category,
-      image
+      entry_image
     ]);
     result = data.rowCount;
   } catch (err) {

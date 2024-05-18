@@ -36,7 +36,7 @@ const getEntries = async (req, res) => {
 
 // Crear entry por email
 const createEntry = async (req, res) => {
-    const newEntry = req.body; // {title,content,email,category}
+    const newEntry = req.body; // {title,content,email,category,entry_image}
     const response = await entry.createEntry(newEntry);
     res.status(201).json({
         "items_created": response,
