@@ -82,11 +82,6 @@ const MainComponent = () => {
 
   }
    
-  useEffect(() => {
-    console.log("Artículos ordenados ASC:", list);
-  }, [list]);
-
-
   const handleSortDesc = () => {
     // Sort descending
     const listSortedDesc = list.sort((a, b) => b.title.localeCompare(a.title));
@@ -95,9 +90,7 @@ const MainComponent = () => {
     setList(listSortedDesc);
   
   }
-  useEffect(() => {
-    console.log("Artículos ordenados DESC:", list);
-  }, [list]);
+ 
 
   // ***************************************************************
   // ***********************   NEW ENTRY   *************************

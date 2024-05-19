@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+const port = 3000;
 const express = require("express");
 const app = express();
 const cors = require ('cors')
@@ -31,7 +31,7 @@ app.use('/api/authors',authorsRoutes);
 // http://localhost:3000
 
 
-app.listen(config.port, () => {
-  console.log(`Server is running on port ${config.port}`);
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 
