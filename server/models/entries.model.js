@@ -10,9 +10,6 @@ const pool = new Pool({
 });
 
 // GET
-
-
-// GET
 const getAllEntries = async () => {
   let client, result;
   try {
