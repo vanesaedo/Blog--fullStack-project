@@ -11,13 +11,13 @@ const baseURL = "http://localhost:3000/api/entries";
 const MainComponent = () => {
 
   const [list, setList] = useState([]); // Lista de entries
-  const [newEntryData, setNewEntryData] = useState({
+ /*  const [newEntryData, setNewEntryData] = useState({
     title: '',
     content: '',
     email: '',
     category: '',
     entry_image: ''
-  });
+  }); */
   
 
   // ***************************************************************
@@ -108,8 +108,8 @@ const MainComponent = () => {
           title:e.target.title.value,
           content: e.target.content.value,
           email: e.target.email.value,
-          category: e.target.email.value,
-          entry_image:e.target.email.value
+          category: e.target.category.value,
+          entry_image:e.target.entry_image.value
         });
 
         console.log("Your new entry has been created.", response);
@@ -139,15 +139,15 @@ La bioluminiscencia es una parte integral de los medios de supervivencia de esta
 
   return <>
 
-    <form className="searchTitle" onSubmit={handleSubmit}>
+    <form className="search" onSubmit={handleSubmit}>
       <h3>Búsqueda por título:</h3>
-      <label>Búsqueda por título:
-        <input type="text" name="buscar" id="buscar" ></input>
-      </label>
+      
+        <input type="text" name="buscar" id="buscar" placeholder="Title"></input>
+    
       <button>Buscar</button>
     </form>
 
-    <section className="searchTitle">
+    <section className="search">
       <h3>Filtro por categoría:</h3>
       <label>Selecciona una categoría:
         <select id="selectCategory" name="categories"
@@ -161,20 +161,42 @@ La bioluminiscencia es una parte integral de los medios de supervivencia de esta
       </label>
     </section>
 
-    <section className="searchTitle">
+    <section className="search">
       <h3>Ordenación:</h3>
       <button name="a-z" onClick={handleSortAsc}>A-Z</button>
       <button name="z-a" onClick={handleSortDesc}>Z-A</button>
     </section>
 
-    <form onSubmit={handleSubmitNewEntry}>
-      <input type="text" name="title" placeholder="Title" />
-      <input type="text" name="content" placeholder="Content" />
-      <input type="email" name="email" placeholder="Email" />
-      <input type="text" name="category" placeholder="Category" />
-      <input type="text" name="entry_image" placeholder="Entry Image URL" />
-      <button>Create Entry</button>
+    <section className="search">
+    <form id="newentry" onSubmit={handleSubmitNewEntry}>
+
+    <h3>Nueva entrada:</h3>
+
+      <label name="title">Título:<br></br>
+      <input type="text" name="title" placeholder="Title" /><br></br>
+      </label>
+
+      <label name="content">Contenido: <br></br>
+      <input type="text" name="content" placeholder="Content" /><br></br>
+      </label>
+
+      <label name="entry_image"> Url de la imagen:<br></br>
+      <input type="text" name="entry_image" placeholder="Entry Image URL" /><br></br>
+      </label>
+
+      <label name="category"> Categoría: <br></br>
+      <input type="text" name="category" placeholder="Category" /><br></br>
+      </label>
+
+      <label name="email"> Email del autor: <br></br>
+      <input type="email" name="email" placeholder="Email" /><br></br>
+      </label>
+
+      <button className="createButton">Create Entry</button>
+
     </form>
+    </section>
+
 
     <article>
       {list.length !== 0 ?
