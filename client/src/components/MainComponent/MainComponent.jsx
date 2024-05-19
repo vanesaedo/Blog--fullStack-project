@@ -11,7 +11,14 @@ const baseURL = "http://localhost:3000/api/entries";
 const MainComponent = () => {
 
   const [list, setList] = useState([]); // Lista de entries
-  const [selectedCategory, setSelectedCategory] = useState("")
+  const [newEntryData, setNewEntryData] = useState({
+    title: '',
+    content: '',
+    email: '',
+    category: '',
+    entry_image: ''
+  });
+  
 
   // ***************************************************************
   // ******************   GET ALL ENTRIES  *************************
@@ -79,18 +86,52 @@ const MainComponent = () => {
     const listSortedAsc = [...list].sort((a, b) => a.title.localeCompare(b.title));
     console.log(listSortedAsc);
     setList(listSortedAsc);
-    
+
   }
 
 
   const handleSortDesc = () => {
     // Sort descending
     const listSortedDesc = [...list].sort((a, b) => b.title.localeCompare(a.title));
-  console.log(listSortedDesc);
-  setList(listSortedDesc);
+    console.log(listSortedDesc);
+    setList(listSortedDesc);
   }
 
+  // ***************************************************************
+  // *******************   CREATE ENTRY   **************************
+  // ***************************************************************
 
+  const handleSubmitNewEntry = async (e) => {
+      e.preventDefault();
+      try {
+        const response = await axios.post('http://localhost:3000/api/entries/new/?', {
+          title:e.target.title.value,
+          content: e.target.content.value,
+          email: e.target.email.value,
+          category: e.target.email.value,
+          entry_image:e.target.email.value
+        });
+
+        console.log("Your new entry has been created.", response);
+        setNewEntryData[response.data]
+      } catch (error) {
+        console.error('Error in newEntry function:', error);
+        throw error; // Re-throw the error so it can be caught in handleSubmitNewEntry
+      }
+     
+    };
+
+// 
+
+
+/*    "title":"Biolumniscencia marina en las Maldivas",  
+      "content": "La bioluminiscencia es la emisión de luz por un organismo vivo. Esta luz no es una luz refracta, pero ben una luz producida. Miles de especies animales emiten luz, bacterias, hongos, algas, insectos, moluscos, crustáceos y especialmente los peces de aguas profundas, que viven en el abismo. 
+En el abismo, la bioluminiscencia es común con el 95% de los individuos recolectados en 4000 m de profundidad, son luminosos. 
+La bioluminiscencia es una parte integral de los medios de supervivencia de estas especies. Estos animales desencadenar reacciones químicas en las que la energía se convierte en energía luminosa.", 
+      "date": "2024-04-30",
+      "email": 1,
+      "category": "Ciencia",
+      "image": "https://astronoo.com/images/animaux/clitocybe.png" */
 
   // ***************************************************************
   // ***********************   RETURN   ****************************
@@ -126,7 +167,16 @@ const MainComponent = () => {
       <button name="z-a" onClick={handleSortDesc}>Z-A</button>
     </section>
 
-       <article>
+    <form onSubmit={handleSubmitNewEntry}>
+      <input type="text" name="title" placeholder="Title" />
+      <input type="text" name="content" placeholder="Content" />
+      <input type="email" name="email" placeholder="Email" />
+      <input type="text" name="category" placeholder="Category" />
+      <input type="text" name="entry_image" placeholder="Entry Image URL" />
+      <button>Create Entry</button>
+    </form>
+
+    <article>
       {list.length !== 0 ?
         <article>
           {list.map(entry => (

@@ -20,9 +20,9 @@ const queries = {
         ON e.id_author=a.id_author
         ORDER BY e.title;
     `,
-  createEntry: `INSERT INTO entries(title,content,id_author,category) 
+  createEntry: `INSERT INTO entries(title,content,id_author,category,entry_image) 
     VALUES ($1,$2,
-    (SELECT id_author FROM authors WHERE email=$3),$4)`,
+    (SELECT id_author FROM authors WHERE email=$3),$4,$5)`,
   updateEntry: `UPDATE entries
     SET
         title=$1, 
