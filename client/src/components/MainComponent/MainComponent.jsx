@@ -76,49 +76,20 @@ const MainComponent = () => {
 
   const handleSortAsc = () => {
     // Sort ascending
-    const listSortedAsc = list.sort((a , b) => a.title.localeCompare(b.title));
-    console.log(listSortedAsc)
+    const listSortedAsc = [...list].sort((a, b) => a.title.localeCompare(b.title));
+    console.log(listSortedAsc);
     setList(listSortedAsc);
-    /* Sin método localCompare
     
-    list.sort((a, b) => {
-    if (a.nombre < b.nombre) {
-        return -1;
-    } else if (a.nombre > b.nombre) {
-        return 1;
-    } else {
-        return 0;
-    }
-}); */
   }
 
-  useEffect(() => {
-
-  }, [list]);
-  
 
   const handleSortDesc = () => {
     // Sort descending
-    const listSortedDesc = list.sort((a , b) => b.title.localeCompare(a.title));
-  
-    console.log(listSortedDesc)
-    setList(listSortedDesc);
-      /* Sin método localCompare
-    
-    list.sort((a, b) => {
-    if (a.nombre < b.nombre) {
-        return 1;
-    } else if (a.nombre > b.nombre) {
-        return -1;
-    } else {
-        return 0;
-    }
-}); */
+    const listSortedDesc = [...list].sort((a, b) => b.title.localeCompare(a.title));
+  console.log(listSortedDesc);
+  setList(listSortedDesc);
   }
 
-  useEffect(() => {
-    
-      }, [list]);
 
 
   // ***************************************************************
@@ -154,16 +125,16 @@ const MainComponent = () => {
       <button name="a-z" onClick={handleSortAsc}>A-Z</button>
       <button name="z-a" onClick={handleSortDesc}>Z-A</button>
     </section>
-    
-    <article>
+
+       <article>
       {list.length !== 0 ?
-        <ul>
+        <article>
           {list.map(entry => (
             <EntryCard key={uuidv4()}
               data={entry} />
 
           ))};
-        </ul>
+        </article>
         : <p>No se reciben datos</p>
 
       }  </article>
