@@ -5,8 +5,7 @@ const cors = require ('cors')
 const bodyParser = require ('body-parser')
 
 // Rutas
-//const booksRoutes = require("./routes/books.routes")
-//const productsRoutes = require("./routes/products.routes")
+
 const entriesRoutes = require("./routes/entries.routes")
 const authorsRoutes = require("./routes/authors.routes")
 
