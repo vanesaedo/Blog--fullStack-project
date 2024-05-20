@@ -6,15 +6,14 @@ import EntryCard from "./EntryCard/EntryCard";
 
 
 
-const baseURL = "http://localhost:3000/api/entries";
+const baseURL = "http://localhost:3000";
 
 const MainComponent = () => {
 
   const [list, setList] = useState([]); // Lista de entries
-  const [selectedCategory, setSelectedCategory] = useState("")
 
   // ***************************************************************
-  // ******************   GET ALL ENTRIES  *************************
+  // ******************   SEARCH BY TITLE  *************************
   // ***************************************************************
 
   const handleSubmit = (e) => {
@@ -34,7 +33,7 @@ const MainComponent = () => {
 
     async function getEntries() {
       try {
-        const res = await axios.get(baseURL);
+        const res = await axios.get(`${baseURL}/api/entries`);
         console.log("Response:", res);
         const entries = res.data; //[{},{},{}]
         console.log("Data:", entries);
@@ -57,7 +56,7 @@ const MainComponent = () => {
   const handleChangeCategory = (e) => {
     const selectedValue = e.target.value;
     console.log(e)
-    const filteredList = (list.filter((element) => element.category === selectedValue));
+    const filteredList = [...list].filter((element) => element.category === selectedValue);
     setList(filteredList)
 
   }
@@ -66,6 +65,8 @@ const MainComponent = () => {
 
     console.log("Artículos por categoría:", list);
   }, [list]);
+
+
 
   // ***************************************************************
   // ***********************   SORT ASC   **************************
@@ -79,54 +80,54 @@ const MainComponent = () => {
     const listSortedAsc = [...list].sort((a, b) => a.title.localeCompare(b.title));
     console.log(listSortedAsc);
     setList(listSortedAsc);
-    
+
   }
 
 
   const handleSortDesc = () => {
     // Sort descending
     const listSortedDesc = [...list].sort((a, b) => b.title.localeCompare(a.title));
-  console.log(listSortedDesc);
-  setList(listSortedDesc);
+    console.log(listSortedDesc);
+    setList(listSortedDesc);
   }
 
-
-
+  
   // ***************************************************************
   // ***********************   RETURN   ****************************
   // ***************************************************************
 
   return <>
 
-    <form className="searchTitle" onSubmit={handleSubmit}>
+    <form className="search" onSubmit={handleSubmit}>
       <h3>Búsqueda por título:</h3>
-      <label>Búsqueda por título:
-        <input type="text" name="buscar" id="buscar" ></input>
-      </label>
+      
+        <input type="text" name="buscar" id="buscar" placeholder="Title"></input>
+    
       <button>Buscar</button>
     </form>
 
-    <section className="searchTitle">
+    <section className="search">
       <h3>Filtro por categoría:</h3>
       <label>Selecciona una categoría:
-        <select id="selectCategory" name="categories"
+        <select id="selectCategory" name="category"
           onChange={handleChangeCategory}
         >
           <option value="Diseño">Diseño</option>
           <option value="Ciencia">Ciencia</option>
-          <option value="Sucesos">Sucesos</option>
-          <option value="Deportes">Deportes</option>
+          <option value="Biología">Biología</option>
+          <option value="Medicina">Medicina</option>
         </select>
       </label>
     </section>
 
-    <section className="searchTitle">
+    <section className="search">
       <h3>Ordenación:</h3>
       <button name="a-z" onClick={handleSortAsc}>A-Z</button>
       <button name="z-a" onClick={handleSortDesc}>Z-A</button>
     </section>
 
-       <article>
+    
+    <article>
       {list.length !== 0 ?
         <article>
           {list.map(entry => (

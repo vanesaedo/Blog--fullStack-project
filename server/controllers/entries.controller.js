@@ -1,4 +1,4 @@
-const entries = require('../models/entries.model');
+
 const entry = require('../models/entries.model'); // Importar el modelo de la BBDD
 
 //getEntries
