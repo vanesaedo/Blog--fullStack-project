@@ -23,35 +23,40 @@ const NewEntry = () => {
     }
 
   };
-  return <section className="newentry_form">
+  return (<>
+  <h3>Nuevo artículo:</h3>
+  <section className="newentry_form">
+   
     <form onSubmit={handleSubmitNewEntry}>
 
-      <h3>Nueva entrada:</h3>
+      
 
       <label name="title" >Título:<br></br>
-        <input type="text" name="title" placeholder="Title" class="new_entry_form_label" /><br></br>
+        <input type="text" name="title"  class="new_entry_form_label" /><br></br>
       </label>
 
       <label name="content" >Contenido: <br></br>
-        <input type="text" name="content" placeholder="Content" class="new_entry_form_label" /><br></br>
+      <textarea name="content"  className="new_entry_form_label"></textarea><br/>
       </label>
 
       <label name="entry_image"> Url de la imagen:<br></br>
-        <input type="text" name="entry_image" placeholder="Entry Image URL" class="new_entry_form_label" /><br></br>
+        <input type="text" name="entry_image"  class="new_entry_form_label" /><br></br>
       </label>
 
       <label name="category"> Categoría: <br></br>
-        <input type="text" name="category" placeholder="Category" class="new_entry_form_label" /><br></br>
+        <input type="text" name="category"  class="new_entry_form_label" /><br></br>
       </label>
 
       <label name="email"> Email del autor: <br></br>
-        <input type="email" name="email" placeholder="Email" /><br></br>
+        <input type="email" name="email"  /><br></br>
       </label>
 
       <button className="createButton">Create Entry</button>
 
     </form>
   </section>
+  </>
+  )
 };
 
 
