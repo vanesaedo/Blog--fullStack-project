@@ -1,0 +1,11 @@
+
+.item_main_nav {
+    display:inline;
+    color:white;
+    padding: 24px; 
+     
+ }
+ .active {
+    color:white;
+    font-weight: 800;
+}

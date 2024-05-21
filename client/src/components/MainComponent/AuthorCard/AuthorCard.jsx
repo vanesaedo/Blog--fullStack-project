@@ -1,16 +1,21 @@
 import React from "react";
+import './AuthorCard.css';
+
 
 const AuthorCard = (props) => {
-  const {name,surname,email,image } = props.data;
+  const { name, surname, bio, image } = props.data;
 
-  return <article className="entrycard">
-    <img src={image} alt="author image"></img>
-    <h2>{name} {surname}</h2>
-    <h4>{email}</h4>
+  return <>
+ 
+
+     <div className="author_card">
+        <img src={image} alt={name}/>
       
-
-
-  </article>
+        <h2>{name} {surname}</h2>
+        <p>{bio}</p>
+      </div>
+   
+</>
 };
 
 export default AuthorCard;

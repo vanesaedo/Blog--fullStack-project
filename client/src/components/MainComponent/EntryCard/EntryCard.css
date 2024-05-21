@@ -1,7 +1,8 @@
 .entrycard {
    
-    padding: 20px 60px;
-    margin: 40px; 
+    padding: 60px;
+    margin:60px; 
+   
     max-width:100%;
     text-align: left;
     background-color:white;
@@ -10,6 +11,10 @@
     
 }
 img {
-    max-width: 100%;
+    width: 100%;
     height: auto; 
+}
+
+.categoria_titulo  {
+    margin:0px;
 }

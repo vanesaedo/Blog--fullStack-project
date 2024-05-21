@@ -25,22 +25,17 @@ const Authors = () => {
     getAllAuthors();
   }, []);
 
-
-
-  return  <article>
-  {list.length !== 0 ?
-    <article>
-      {list.map(authors => (
-        <AuthorCard key={uuidv4()}
-          data={authors} />
-
-      ))};
-    </article>
-    : <p>No se reciben datos</p>
-
-  }  </article>
-
-
+  return (<section className="author_detail">
+  {list.length !== 0 ? (
+    list.map(author => (
+      <AuthorCard key={uuidv4()} data={author} />
+    ))
+  ) : (
+    <p>No se reciben datos</p>
+  )}
+</section>
+);
 };
+
 
 export default Authors;
