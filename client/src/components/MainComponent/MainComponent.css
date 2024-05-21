@@ -5,11 +5,11 @@
     align-items: center;
     justify-content: center;
     background-color: white;
+    z-index: 4;
 }
 
 .filters:first-child {
     margin-top: 100px;
-
 }
 
 .search {
@@ -96,7 +96,7 @@
     .formfilter {
         display: flex;
         flex-direction: column;
-     
+
     }
 
     .button_blue,
@@ -110,5 +110,5 @@
         height: 400px;
     }
 
-    
+
 }

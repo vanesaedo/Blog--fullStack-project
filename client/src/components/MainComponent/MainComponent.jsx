@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from 'uuid';
 import EntryCard from "./EntryCard/EntryCard";
+import Footer from "../Footer/Footer"
 
 
 
@@ -99,19 +100,6 @@ const handleSortDesc = () => {
   setList(listSortedDesc);
 }
 
-//*******************
-//******************* 
-
-//
-
-function handleCollapseFilter () {
-  document.getElementById("mySidebar").style.width = "100%";
-  document.getElementById("mySidebar").style.display = "block";
-}
-
-
-
-
 // ***************************************************************
 // ***********************   RETURN   ****************************
 // ***************************************************************
@@ -167,6 +155,7 @@ return (<>
       : <p>No se reciben datos</p>
     };
   </article>
+  <Footer />
 </>
 );
 };
