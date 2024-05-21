@@ -6,14 +6,14 @@ const router = express.Router();
 //http://localhost:3000/api/authors
 router.get('/', authorsController.getAllAuthors);//OK
 
-//http://localhost:3000/api/authors/birja@thebridgeschool.es
-router.get('/:email', authorsController.getAuthorByEmail);//OK
+//http://localhost:3000/api/authors/alicia@mail.com
+router.get('/:email', authorsController.getAuthorByEmail);
 
 //http://localhost:3000/api/authors/ 
-router.post('/new', authorsController.createAuthor);//OK
+router.post('/new', authorsController.createAuthor);
 
 
-//http://localhost:3000/api/authors/edit/birja@thebridgeschool.es
+//http://localhost:3000/api/authors/edit/alicia@mail.com
 router.put('/edit/:email', authorsController.updateAuthorByEmail);
 
 
