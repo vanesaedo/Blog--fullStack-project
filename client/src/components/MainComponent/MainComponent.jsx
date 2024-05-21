@@ -85,7 +85,7 @@ useEffect(() => {
 
 const handleSortAsc = () => {
   // Sort ascending
-  const listSortedAsc = [...filteredEntries ].sort((a, b) => a.title.localeCompare(b.title));
+  const listSortedAsc = [...list].sort((a, b) => a.title.localeCompare(b.title));
   console.log(listSortedAsc);
   setList(listSortedAsc);
 
@@ -94,10 +94,22 @@ const handleSortAsc = () => {
 
 const handleSortDesc = () => {
   // Sort descending
-  const listSortedDesc = [...filteredEntries].sort((a, b) => b.title.localeCompare(a.title));
+  const listSortedDesc = [...list].sort((a, b) => b.title.localeCompare(a.title));
   console.log(listSortedDesc);
   setList(listSortedDesc);
 }
+
+//*******************
+//******************* 
+
+//
+
+function handleCollapseFilter () {
+  document.getElementById("mySidebar").style.width = "100%";
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+
 
 
 // ***************************************************************
@@ -105,18 +117,22 @@ const handleSortDesc = () => {
 // ***************************************************************
 
 return (<>
+
   <section className="filters">
 
     <div>
-      <form className="search" onSubmit={handleSubmit}>
+      <form className="formfilter" onSubmit={handleSubmit}>
+        <div  className="search">
         <input type="text" name="buscar" id="buscar" className="inputproperties" placeholder="Escribe un título"></input>
-        <button>Buscar</button>
+        </div>
+        <div  className="search">
+        <button className="button_blue">Buscar</button>
+        </div>
       </form>
     </div>
-
+  
     <div className="search">
-     
-        <select id="selectCategory" name="category" className="inputproperties"
+      <select name="category" className="inputproperties"
           onChange={handleCategoryChange} value={selectedCategory}
         >
           <option value="">Todas las categorías</option>
@@ -124,16 +140,19 @@ return (<>
           <option value="Ciencia">Ciencia</option>
           <option value="Biología">Biología</option>
           <option value="Medicina">Medicina</option>
-        </select>
+      </select>
       
     </div>
 
-    <div className="search">
-      
-        
-        <button name="a-z" onClick={handleSortAsc}>Orden A-Z</button>
-        <button name="z-a" onClick={handleSortDesc}>Orden Z-A</button>
-     
+    <div>
+      <form className="formfilter">
+        <div className="search">
+        <button className="button_blue" name="a-z" onClick={handleSortAsc}>Orden A-Z</button>
+        </div>
+        <div className="search">
+        <button className="button_blue" name="z-a" onClick={handleSortDesc}>Orden Z-A</button>
+        </div>
+        </form>
     </div>
   </section>
 
