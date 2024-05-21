@@ -119,7 +119,7 @@ return (<>
         <select id="selectCategory" name="category" className="inputproperties"
           onChange={handleCategoryChange} value={selectedCategory}
         >
-          <option value="">Selecciona una categoría</option>
+          <option value="">Todas las categorías</option>
           <option value="Diseño">Diseño</option>
           <option value="Ciencia">Ciencia</option>
           <option value="Biología">Biología</option>

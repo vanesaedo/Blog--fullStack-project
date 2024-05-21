@@ -24,7 +24,7 @@ const NewEntry = () => {
 
   };
   return (<>
-  <h3>Nuevo artículo:</h3>
+  <h3 className="titulo_nuevo_articulo">Nuevo artículo:</h3>
   <section className="newentry_form">
    
     <form onSubmit={handleSubmitNewEntry}>
