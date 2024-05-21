@@ -6,42 +6,45 @@ import EntryCard from "./EntryCard/EntryCard";
 
 
 
-const baseURL = "http://localhost:3000/api/entries";
+const baseURL = "http://localhost:3000";
 
 const MainComponent = () => {
 
   const [list, setList] = useState([]); // Lista de entries
-  const [selectedCategory, setSelectedCategory] = useState("")
+
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [filteredEntries, setFilteredEntries] = useState([]);
+
 
   // ***************************************************************
-  // ******************   GET ALL ENTRIES  *************************
+  // ******************   SEARCH BY TITLE  *************************
   // ***************************************************************
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const title = e.target.buscar.value
-    // sacar por consola el valor del input
-    console.log(title)
-    // Filtrar del array de entries el buscado
+  
     const result = (list.filter((entry) => entry.title === title));
-    // saca por consola el array filtrado
+
     console.log(result);
-    // Modificar el estado entries con el resultado de filtrado
     setList(result);
   }
+
+
 
   useEffect(() => {
 
     async function getEntries() {
       try {
-        const res = await axios.get(baseURL);
+        const res = await axios.get(`${baseURL}/api/entries`);
         console.log("Response:", res);
         const entries = res.data; //[{},{},{}]
         console.log("Data:", entries);
         setList(entries)
-
+        setFilteredEntries(entries); // Inicializar filteredEntries con todos los entries
       } catch (e) {
-        setList([])
+        setList([]);
+        setFilteredEntries([]);
       }
     }
     getEntries();
@@ -54,121 +57,99 @@ const MainComponent = () => {
 
   // Filtrar por categoria
 
-  const handleChangeCategory = (e) => {
-    const selectedValue = e.target.value;
-    console.log(e)
-    const filteredList = (list.filter((element) => element.category === selectedValue));
-    setList(filteredList)
-
-  }
-
-  useEffect(() => {
-
-    console.log("Artículos por categoría:", list);
-  }, [list]);
-
-  // ***************************************************************
-  // ***********************   SORT ASC   **************************
-  // ***************************************************************
-  // Filtro de ordenación a-z con 2 botones. a-z y z-a. Cuando haga click en uno de los botones, se reordendan las entries del array. onclick + método sort() JS
-
-  //onclick + método sort() JS
-
-  const handleSortAsc = () => {
-    // Sort ascending
-    const listSortedAsc = list.sort((a , b) => a.title.localeCompare(b.title));
-    console.log(listSortedAsc)
-    setList(listSortedAsc);
-    /* Sin método localCompare
-    
-    list.sort((a, b) => {
-    if (a.nombre < b.nombre) {
-        return -1;
-    } else if (a.nombre > b.nombre) {
-        return 1;
+  const handleCategoryChange = (e) => {
+    const category = e.target.value;
+    setSelectedCategory(category);
+    if (category === '') {
+      setFilteredEntries(list);
     } else {
-        return 0;
+      setFilteredEntries(list.filter(entry => entry.category === category));
     }
-}); */
-  }
-
-  useEffect(() => {
-
-  }, [list]);
-  
-
-  const handleSortDesc = () => {
-    // Sort descending
-    const listSortedDesc = list.sort((a , b) => b.title.localeCompare(a.title));
-  
-    console.log(listSortedDesc)
-    setList(listSortedDesc);
-      /* Sin método localCompare
-    
-    list.sort((a, b) => {
-    if (a.nombre < b.nombre) {
-        return 1;
-    } else if (a.nombre > b.nombre) {
-        return -1;
-    } else {
-        return 0;
-    }
-}); */
-  }
-
-  useEffect(() => {
-    
-      }, [list]);
+ 
+  };
 
 
-  // ***************************************************************
-  // ***********************   RETURN   ****************************
-  // ***************************************************************
+useEffect(() => {
 
-  return <>
+  console.log("Artículos por categoría:", filteredEntries);
+}, [filteredEntries]);
 
-    <form className="searchTitle" onSubmit={handleSubmit}>
-      <h3>Búsqueda por título:</h3>
-      <label>Búsqueda por título:
-        <input type="text" name="buscar" id="buscar" ></input>
-      </label>
-      <button>Buscar</button>
-    </form>
 
-    <section className="searchTitle">
-      <h3>Filtro por categoría:</h3>
-      <label>Selecciona una categoría:
-        <select id="selectCategory" name="categories"
-          onChange={handleChangeCategory}
+
+// ***************************************************************
+// ***********************   SORT ASC   **************************
+// ***************************************************************
+// Filtro de ordenación a-z con 2 botones. a-z y z-a. Cuando haga click en uno de los botones, se reordendan las entries del array. onclick + método sort() JS
+
+//onclick + método sort() JS
+
+const handleSortAsc = () => {
+  // Sort ascending
+  const listSortedAsc = [...filteredEntries ].sort((a, b) => a.title.localeCompare(b.title));
+  console.log(listSortedAsc);
+  setList(listSortedAsc);
+
+}
+
+
+const handleSortDesc = () => {
+  // Sort descending
+  const listSortedDesc = [...filteredEntries].sort((a, b) => b.title.localeCompare(a.title));
+  console.log(listSortedDesc);
+  setList(listSortedDesc);
+}
+
+
+// ***************************************************************
+// ***********************   RETURN   ****************************
+// ***************************************************************
+
+return (<>
+  <section className="filters">
+
+    <div>
+      <form className="search" onSubmit={handleSubmit}>
+        <input type="text" name="buscar" id="buscar" className="inputproperties" placeholder="Escribe un título"></input>
+        <button>Buscar</button>
+      </form>
+    </div>
+
+    <div className="search">
+     
+        <select id="selectCategory" name="category" className="inputproperties"
+          onChange={handleCategoryChange} value={selectedCategory}
         >
+          <option value="">Todas las categorías</option>
           <option value="Diseño">Diseño</option>
           <option value="Ciencia">Ciencia</option>
-          <option value="Sucesos">Sucesos</option>
-          <option value="Deportes">Deportes</option>
+          <option value="Biología">Biología</option>
+          <option value="Medicina">Medicina</option>
         </select>
-      </label>
-    </section>
+      
+    </div>
 
-    <section className="searchTitle">
-      <h3>Ordenación:</h3>
-      <button name="a-z" onClick={handleSortAsc}>A-Z</button>
-      <button name="z-a" onClick={handleSortDesc}>Z-A</button>
-    </section>
-    
-    <article>
-      {list.length !== 0 ?
-        <ul>
-          {list.map(entry => (
-            <EntryCard key={uuidv4()}
-              data={entry} />
+    <div className="search">
+      
+        
+        <button name="a-z" onClick={handleSortAsc}>Orden A-Z</button>
+        <button name="z-a" onClick={handleSortDesc}>Orden Z-A</button>
+     
+    </div>
+  </section>
 
-          ))};
-        </ul>
-        : <p>No se reciben datos</p>
+  <article>
+    {list.length !== 0 ?
+      <article>
+        {filteredEntries.map(entry => (
+          <EntryCard key={uuidv4()} data={entry} />
 
-      }  </article>
-
-  </>
+        ))};
+      </article>
+      : <p>No se reciben datos</p>
+    };
+  </article>
+</>
+);
 };
 
 export default MainComponent;

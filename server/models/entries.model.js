@@ -10,9 +10,6 @@ const pool = new Pool({
 });
 
 // GET
-
-
-// GET
 const getAllEntries = async () => {
   let client, result;
   try {
@@ -48,7 +45,7 @@ const getEntriesByEmail = async (email) => {
 };
 // CREATE
 const createEntry = async (entry) => {
-  const { title, content, email, category, image } = entry;
+  const { title, content, email, category, entry_image } = entry;
   let client, result;
   try {
     client = await pool.connect(); // Espera a abrir conexion
@@ -57,7 +54,7 @@ const createEntry = async (entry) => {
       content,
       email,
       category,
-      image
+      entry_image
     ]);
     result = data.rowCount;
   } catch (err) {
