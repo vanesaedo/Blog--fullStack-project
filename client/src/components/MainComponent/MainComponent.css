@@ -1,32 +1,118 @@
 .filters {
-    display:flex;
-    text-wrap: wrap;
-    align-items:normal;
-    margin-top:100px;
-    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     background-color: white;
-   
+}
+
+.filters:first-child {
+    margin-top: 100px;
+
 }
 
 .search {
-    text-align: center;
-    max-width:100%;
-    background-color:white;
-    border-radius: 6px; 
-     
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: auto;
+
+    border: 1px solid black;
+    margin: 10px;
+    padding: 0px;
 }
 
-img {
-
-    width:100%;
+.formfilter {
+    display: flex;
+    flex-direction: row;
 }
 
 .inputproperties {
+    display: flex;
+    flex-direction: row;
     height: 40px;
-    width:300px;
+    width: 300px;
     font-size: medium;
-    padding-right:10px;
-    padding-left:10px;
-    margin:20px; 
+    padding-right: 10px;
+    padding-left: 10px;
+
+}
+
+.button_blue {
+    background-color: rgb(50, 63, 232);
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .filters {
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    .search {
+        display: flex;
+        justify-content: center;
+        height: auto;
+        border: 1px solid black;
+        margin: 20px;
+        padding: 0px;
+    }
+
+    .formfilter {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button_blue,
+    .inputproperties {
+        justify-content: center;
+        width: 400px;
+        margin: 10px;
+    }
+
+    .filters:nth-child(3) {
+        height: 500px;
+    }
+
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+    .filters {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .search {
+        display: flex;
+        justify-content: center;
+        height: auto;
+        width: 380px;
+        border: 1px solid black;
+        margin: 20px;
+        padding: 0px;
+    }
+
+    .formfilter {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .button_blue,
+    .inputproperties {
+        justify-content: center;
+        width: 400px;
+        margin: 10px;
+    }
+
+    .filters:nth-child(3) {
+        height: 500px;
+    }
+
 }
