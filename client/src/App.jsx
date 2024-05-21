@@ -3,15 +3,14 @@ import { Route, Routes, Navigate } from 'react-router-dom'
 import MainComponent from './components/MainComponent/MainComponent'
 import NewEntry from './components/MainComponent/NewEntry/NewEntry'
 import Authors from './components/MainComponent/Authors/Authors'
-import Nav from './components/Header/Nav/Nav'
+import './App.css'
+
 
 function App() {
 
   return (
     <>
-      <div className='container pt-3'>
-        <Nav/>
-        <hr />
+        <section className='container pt-3'>
 
         <Routes>
           <Route path='/' element={<MainComponent />} />
@@ -20,7 +19,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     
-      </div>
+      </section>
   
     </>
   )

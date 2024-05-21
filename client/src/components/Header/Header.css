@@ -1,0 +1,8 @@
+.header_blue {
+    background-color: rgb(47, 63, 241);
+    height: 40px;
+    position:fixed;
+    width:100%;
+    padding: 40px 40px 20px 40px; 
+    margin-top: 0px; 
+}

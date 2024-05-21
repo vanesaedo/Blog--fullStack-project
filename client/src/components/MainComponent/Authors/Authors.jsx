@@ -25,9 +25,7 @@ const Authors = () => {
     getAllAuthors();
   }, []);
 
-
-
-  return  <article>
+  return  <article className="author_detaill">
   {list.length !== 0 ?
     <article>
       {list.map(authors => (
@@ -39,7 +37,6 @@ const Authors = () => {
     : <p>No se reciben datos</p>
 
   }  </article>
-
 
 };
 

@@ -12,22 +12,29 @@ const MainComponent = () => {
 
   const [list, setList] = useState([]); // Lista de entries
 
+  const [filteredList, setFilteredList] = useState("");
+
+
   // ***************************************************************
   // ******************   SEARCH BY TITLE  *************************
   // ***************************************************************
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const filteredList = list;
     const title = e.target.buscar.value
     // sacar por consola el valor del input
     console.log(title)
     // Filtrar del array de entries el buscado
-    const result = (list.filter((entry) => entry.title === title));
+    const result = (filteredList.filter((entry) => entry.title === title));
     // saca por consola el array filtrado
     console.log(result);
+
     // Modificar el estado entries con el resultado de filtrado
     setList(result);
   }
+
+
 
   useEffect(() => {
 
@@ -91,42 +98,45 @@ const MainComponent = () => {
     setList(listSortedDesc);
   }
 
-  
+
   // ***************************************************************
   // ***********************   RETURN   ****************************
   // ***************************************************************
 
   return <>
+  <section className="filters">
 
-    <form className="search" onSubmit={handleSubmit}>
-      <h3>Búsqueda por título:</h3>
-      
+      <div>
+      <form className="search" onSubmit={handleSubmit}>
+        <h3>Búsqueda por título:</h3>
         <input type="text" name="buscar" id="buscar" placeholder="Title"></input>
-    
-      <button>Buscar</button>
-    </form>
+        <button>Buscar</button>
+      </form>
+      </div>
 
-    <section className="search">
-      <h3>Filtro por categoría:</h3>
-      <label>Selecciona una categoría:
-        <select id="selectCategory" name="category"
-          onChange={handleChangeCategory}
-        >
-          <option value="Diseño">Diseño</option>
-          <option value="Ciencia">Ciencia</option>
-          <option value="Biología">Biología</option>
-          <option value="Medicina">Medicina</option>
-        </select>
-      </label>
+      <div className="search">
+        <h3>Filtro por categoría:</h3>
+        <label>Selecciona una categoría:
+          <section id="selectCategory" name="category"
+            onChange={handleChangeCategory}
+          >
+            <option value="Diseño">Diseño</option>
+            <option value="Ciencia">Ciencia</option>
+            <option value="Biología">Biología</option>
+            <option value="Medicina">Medicina</option>
+          </section>
+        </label>
+      </div>
+
+      <div>
+        <form className="search">
+          <h3>Ordenación:</h3>
+          <button name="a-z" onClick={handleSortAsc}>A-Z</button>
+          <button name="z-a" onClick={handleSortDesc}>Z-A</button>
+        </form>
+      </div>
     </section>
 
-    <section className="search">
-      <h3>Ordenación:</h3>
-      <button name="a-z" onClick={handleSortAsc}>A-Z</button>
-      <button name="z-a" onClick={handleSortDesc}>Z-A</button>
-    </section>
-
-    
     <article>
       {list.length !== 0 ?
         <article>
@@ -137,10 +147,9 @@ const MainComponent = () => {
           ))};
         </article>
         : <p>No se reciben datos</p>
-
-      }  </article>
-
-  </>
+};
+  </article>
+</>
 };
 
 export default MainComponent;
