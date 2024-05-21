@@ -1,11 +1,20 @@
+.filters {
+    display:flex;
+    text-wrap: wrap;
+    align-items:normal;
+    margin-top:100px;
+    width:100%;
+    align-items: center;
+    background-color: white;
+   
+}
+
 .search {
-    border:1px solid rgb(0, 0, 0);
-    padding: 20px 60px;
-    margin: 40px; 
+    text-align: center;
     max-width:100%;
-    text-align: left;
     background-color:white;
-    border-radius: 6px;  
+    border-radius: 6px; 
+     
 }
 
 img {
@@ -13,12 +22,11 @@ img {
     width:100%;
 }
 
-.createButton{
-    width:100%;
-    margin: 40px auto; 
-}
-
-.newentry label {
-
-    font-weight: 500;
+.inputproperties {
+    height: 40px;
+    width:300px;
+    font-size: medium;
+    padding-right:10px;
+    padding-left:10px;
+    margin:20px; 
 }
