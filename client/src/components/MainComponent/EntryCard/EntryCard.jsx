@@ -1,6 +1,6 @@
 import React from "react";
 import './EntryCard.css'
-import Footer from './Footer/Footer'
+
 
 
 const EntryCard = (props) => {
@@ -18,7 +18,7 @@ const EntryCard = (props) => {
     
       </div>
     </article>
-    <Footer />
+   
 
   </>
 };

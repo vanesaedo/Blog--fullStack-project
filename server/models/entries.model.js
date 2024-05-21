@@ -1,13 +1,5 @@
-const { Pool } = require("pg");
 const queries = require("./queries"); // Queries SQL
-
-const pool = new Pool({
-  host: "localhost",
-  user: "postgres",
-  port: "5432",
-  database: "postgres",
-  password: "123456",
-});
+const pool = require('../config/db_pgsql');
 
 // GET
 const getAllEntries = async () => {

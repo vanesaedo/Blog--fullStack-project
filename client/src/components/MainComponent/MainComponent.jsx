@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from 'uuid';
 import EntryCard from "./EntryCard/EntryCard";
-import Footer from "../Footer/Footer"
+
 
 
 
@@ -155,7 +155,7 @@ return (<>
       : <p>No se reciben datos</p>
     };
   </article>
-  <Footer />
+
 </>
 );
 };
