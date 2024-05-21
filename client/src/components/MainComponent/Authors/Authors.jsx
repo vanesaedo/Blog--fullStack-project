@@ -4,9 +4,12 @@ import axios from "axios";
 import { v4 as uuidv4 } from 'uuid';
 import AuthorCard from "../AuthorCard/AuthorCard";
 
+import './Authors.css'
+
 const baseURL = "http://localhost:3000";
 
 const Authors = () => {
+
   const [list, setList] = useState([]); // Lista de autores
   useEffect(() => {
 
@@ -14,9 +17,9 @@ const Authors = () => {
       try {
         const res = await axios.get(`${baseURL}/api/authors`);
         console.log("Response:", res);
-        const authors = res.data; //[{},{},{}]
-        console.log("Data:", authors);
-        setList(authors)
+        const authorData = res.data; //[{},{},{}]
+        console.log("Data:", authorData);
+        setList(authorData)
 
       } catch (e) {
         setList([])
@@ -25,7 +28,9 @@ const Authors = () => {
     getAllAuthors();
   }, []);
 
-  return (<section className="author_detail">
+  return (
+  <section className="author_list">
+  <article className="author_item">
   {list.length !== 0 ? (
     list.map(author => (
       <AuthorCard key={uuidv4()} data={author} />
@@ -33,6 +38,7 @@ const Authors = () => {
   ) : (
     <p>No se reciben datos</p>
   )}
+</article>
 </section>
 );
 };

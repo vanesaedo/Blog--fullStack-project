@@ -10,7 +10,6 @@ const AuthorCard = (props) => {
 
      <div className="author_card">
         <img src={image} alt={name}/>
-      
         <h2>{name} {surname}</h2>
         <p>{bio}</p>
       </div>

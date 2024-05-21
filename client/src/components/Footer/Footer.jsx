@@ -3,7 +3,9 @@ import './Footer.css'
 
 const Footer = () => {
 
-  return <footer class="Footer_blue">Footer</footer>;
+  return <footer className="Footer_blue">
+Footer space
+  </footer>;
 };
 
 export default Footer;

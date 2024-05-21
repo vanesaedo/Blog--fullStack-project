@@ -1,20 +1,61 @@
-.entrycard {
-   
-    padding: 60px;
-    margin:60px; 
-   
-    max-width:100%;
+.entry_card {
+    
+    background-color: #fff;
+    border: 1px solid rgb(195, 195, 195);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 40px;
+    margin: 4% 10%;
     text-align: left;
-    background-color:white;
-    border-radius: 6px;
+    transition: transform 0.3s;
+    max-width: 100%;
+    height:600px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
 
+}
+
+.entry_card:hover {
+    transform: translateY(-5px);
     
 }
-img {
-    width: 100%;
-    height: auto; 
+
+.entry_card h2 {
+    font-size: 32px;
+    color: #333;
 }
 
-.categoria_titulo  {
-    margin:0px;
+.entry_card h3 {
+    font-size: 18px;
+    font-style: normal;
+    color: #333;
+}
+
+.entry_card p {
+    white-space: wrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size: 16px;
+    color: #1a1a1a;
+    height: 100px;
+    
+}
+
+
+
+.entry_card img {
+    width: 100%;
+    height: 200px; /* Ajusta esta altura según sea necesario */
+    object-fit: cover; /* Esto asegura que la imagen rellene el contenedor sin deformarse */
+    border-radius: 8px; /* Opcional: para redondear solo la parte superior de la imagen */
+    margin-bottom: 10px;
+}
+
+.entry_card div button {
+    text-align:right;
+    width:120px; 
+    background-color:rgb(50,63,232);
+    color:white;
+
 }
