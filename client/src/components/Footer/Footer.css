@@ -1,4 +1,7 @@
 .footer_blue {
-    min-height: 20%;
+    height: 300px;
+    width:100%;
+    text-align: center;
+    color:white;
     background-color: cornflowerblue;
 }

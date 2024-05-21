@@ -6,6 +6,7 @@ import EntryCard from "./EntryCard/EntryCard";
 
 
 
+
 const baseURL = "http://localhost:3000";
 
 const MainComponent = () => {
@@ -99,19 +100,6 @@ const handleSortDesc = () => {
   setList(listSortedDesc);
 }
 
-//*******************
-//******************* 
-
-//
-
-function handleCollapseFilter () {
-  document.getElementById("mySidebar").style.width = "100%";
-  document.getElementById("mySidebar").style.display = "block";
-}
-
-
-
-
 // ***************************************************************
 // ***********************   RETURN   ****************************
 // ***************************************************************
@@ -167,6 +155,7 @@ return (<>
       : <p>No se reciben datos</p>
     };
   </article>
+
 </>
 );
 };
