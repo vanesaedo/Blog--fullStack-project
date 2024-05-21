@@ -99,12 +99,25 @@ const handleSortDesc = () => {
   setList(listSortedDesc);
 }
 
+//*******************
+//******************* 
+
+//
+
+function handleCollapseFilter () {
+  document.getElementById("mySidebar").style.width = "100%";
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+
+
 
 // ***************************************************************
 // ***********************   RETURN   ****************************
 // ***************************************************************
 
 return (<>
+
   <section className="filters">
 
     <div>
