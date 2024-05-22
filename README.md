@@ -24,45 +24,45 @@ ENTRIES es una aplicación de registro de artículos de contenido académico cre
 
 #### Los estudiantes pueden: 
 
-    ++ Registrarse.
-    ++ Darse de baja.
-    ++ Leer artículos compartidos  por el profesor/a cuando están autorizados o cuando el artículo es de acceso públlco.
-    ++ Marcar/desmarcar artículos como favoritos.
-    ++ Crear, editar y eliminar listas de favoritos. 
-    ++ Las listas de favoritos tendrán nombre (análogo a la utiidad de categoría del profesor) y se crearán como tags.
-    ++ Habrá una lista de favoritos por defecto para usuarios que no deseen crear listas con nombre.
-    ++ Filtrar/buscar artículos por categoría y por título.
-    ++ Ordenar los artícullos de forma ascendente y descendiente por título cuando están listados.
+    - Registrarse.
+    - Darse de baja.
+    - Leer artículos compartidos  por el profesor/a cuando están autorizados o cuando el artículo es de acceso públlco.
+    - Marcar/desmarcar artículos como favoritos.
+    - Crear, editar y eliminar listas de favoritos. 
+    - Las listas de favoritos tendrán nombre (análogo a la utiidad de categoría del profesor) y se crearán como tags.
+    - Habrá una lista de favoritos por defecto para usuarios que no deseen crear listas con nombre.
+    - Filtrar/buscar artículos por categoría y por título.
+    - Ordenar los artícullos de forma ascendente y descendiente por título cuando están listados.
 
 #### Los campos requeridos para todos los usuarios son: 
 
-    ++ Nombre
-    ++ Apellidos
-    ++ Email
-    ++ Password
-    ++ Rol
-    ++ Fecha de nacimiento
+    - Nombre
+    - Apellidos
+    - Email
+    - Password
+    - Rol
+    - Fecha de nacimiento
 
 #### Los datos no requeridos a completar en el perfil son:
-    ++ Adscripción institucional
-    ++ Ubicación habitual
-    ++ Idioma nativo
-    ++ Profesión
-    ++ Fecha de nacimiento
+    - Adscripción institucional
+    - Ubicación habitual
+    - Idioma nativo
+    - Profesión
+    - Fecha de nacimiento
      
 #### Los campos requeridos para crear un artículo son: 
 
-    ++ Id de artículo.
-    ++ Título.
-    ++ Abstract de no más de 40 palabras.
-    ++ Texto del contenido.
-    ++ Imágenes.
-    ++ Estará relacionado con los datos del autor mediante el Id del autor.
+    - Id de artículo.
+    - Título.
+    - Abstract de no más de 40 palabras.
+    - Texto del contenido.
+    - Imágenes.
+    - Estará relacionado con los datos del autor mediante el Id del autor.
 
 #### Los campos requeridos para una categoría son: 
 
-    ++ Nombre
-    ++ Color
+    - Nombre
+    - Color
     *Un artículo sólo puede pertenecer a una categoría. En caso de dudas, se puede utilizar las tag/nombres de lista de favoritos.
 
 ## Modelo de datos
