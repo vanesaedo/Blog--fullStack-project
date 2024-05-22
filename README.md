@@ -10,17 +10,17 @@ ENTRIES es una aplicación de registro de artículos de contenido académico cre
 + Registro  de usuarios con  dos tipos de rol, estudiante  y alumno. 
 
 #### Los profesores pueden: 
-    ++ Registrarse.
-    ++ Darse de baja.
-    ++ Crear, editar, actualizar y eliminar artículos (CRUD).
-    ++ Crear, editar, actualizar y eliminar  categorías (CRUD). 
-    ++ Copiar mediante un botón de copia rápida el enlace a cada artículo para poder compartirlo. 
-    ++ Gestionar autorizaciones de lectura a usuarios identificados por e-mail (se puede autorizar a otros profesores o a estudiantes).
-    ++ Activar/desactivar la opción de acceso público a los artículos.
-     ++ Las listas de favoritos tendrán nombre (análogo a la utiidad de categoría del profesor).
-    ++ Habrá una lista de favoritos por defecto para usuarios que no deseen crear listas con nombre.
-    ++ Filtrar/buscar artículos por categoría y por título.
-    ++ Ordenar los artícullos de forma ascendente y descendiente por título cuando están listados.
+    - Registrarse.
+    - Darse de baja.
+    - Crear, editar, actualizar y eliminar artículos (CRUD).
+    - Crear, editar, actualizar y eliminar  categorías (CRUD). 
+    - Copiar mediante un botón de copia rápida el enlace a cada artículo para poder compartirlo. 
+    - Gestionar autorizaciones de lectura a usuarios identificados por e-mail (se puede autorizar a otros profesores o a estudiantes).
+    - Activar/desactivar la opción de acceso público a los artículos.
+    - Las listas de favoritos tendrán nombre (análogo a la utiidad de categoría del profesor).
+    - Habrá una lista de favoritos por defecto para usuarios que no deseen crear listas con nombre.
+    - Filtrar/buscar artículos por categoría y por título.
+    - Ordenar los artícullos de forma ascendente y descendiente por título cuando están listados.
 
 #### Los estudiantes pueden: 
 
@@ -74,15 +74,15 @@ ENTRIES es una aplicación de registro de artículos de contenido académico cre
 
 ## Pasos para ejecutar el proyecto
 
-1. Clona el repositorio:  
+Paso 1. Clona el repositorio:  
 
 ![Enlace a epositorio Blog-FullStack-Project](https://github.com/vanesaedo/Blog-FullStack-project.git)
 
-2. Ejecuta el siguiente comando para que se instalen totdas las dependencias necesarias: 
+Paso 2. Ejecuta el siguiente comando para que se instalen totdas las dependencias necesarias: 
 
 `npm i ci`
 
-3. Crea una réplica de las bases de datos en tu servidor locall. Encontrarás las queries SQL necesarias en server/uils/queries.js desde la carpeta raíz.
+Paso 3. Crea una réplica de las bases de datos en tu servidor locall. Encontrarás las queries SQL necesarias en server/uils/queries.js desde la carpeta raíz.
 
 ## Ejemplo de uso: 
 
