@@ -1,12 +1,13 @@
 # React + Vite
 
 ## React working in Vite with HMR and some ESLint rules 
+
 ## HTML CSS JavaScript
 
-Read-me completo en server/readme.md.
+Complete Read-me file will be soon at server/readme.md.
 
 
-## PROTOTIPO DE LA INTERFAZ 
+## Hi-Fi Prototype 
 
 ## Lo-fi
 
