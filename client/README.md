@@ -8,12 +8,12 @@ Complete Read-me file will be soon at server/readme.md.
 
 ## Technologies
 ### Back
-+Node.js
-+Express
-+npm
-+MVC
-+Express Validator
-+RegExp
+++ Node.js
+++ Express
+++ npm
+++ MVC
+++ Express Validator
+++ RegExp
 
 ### DB 
 +PostgreSQL - Sequelize
