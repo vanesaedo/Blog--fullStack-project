@@ -8,29 +8,32 @@ Complete Read-me file will be soon at server/readme.md.
 
 ## Technologies
 ### Back
-++ Node.js
-++ Express
-++ npm
-++ MVC
-++ Express Validator
-++ RegExp
+- Node.js
+- Express
+- npm
+- MVC
+- Express Validator
+- RegExp
 
 ### DB 
-+PostgreSQL - Sequelize
-+MongoDB - Mongoose
+- PostgreSQL - Sequelize
+- MongoDB - Mongoose
 
 ### Front
-+React
-+Vite
-+SASS
-+AP
-+MaterialBase
+- React
+- Vite
+- SASS
+- MaterialBase
 
 ### Deployment
-+Docker
+- Docker
 
-# DESIGN
-## Hi-Fi Prototype 
+## Interface 
+
+Mobile First
+
+
+Hi-Fi Prototype 
 
 ## Lo-fi
 
