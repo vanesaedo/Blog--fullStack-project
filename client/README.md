@@ -7,6 +7,32 @@
 Complete Read-me file will be soon at server/readme.md.
 
 
+
+# DEVELOPMENT
+## Technologies
+### Back
+Node.js
+Express
+npm
+MVC
+Express Validator
+RegExp
+
+### DB 
+PostgreSQL - Sequelize
+MongoDB - Mongoose
+
+### Front
+React
+Vite
+SASS
+SAP
+MaterialBase
+
+### Deployment
+Docker
+
+# DESIGN
 ## Hi-Fi Prototype 
 
 ## Lo-fi
