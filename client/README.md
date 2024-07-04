@@ -1,4 +1,4 @@
-# React + Vite
+# BLOG - React + Vite
 
 ## React working in Vite with HMR and some ESLint rules 
 
@@ -6,31 +6,28 @@
 
 Complete Read-me file will be soon at server/readme.md.
 
-
-
-# DEVELOPMENT
 ## Technologies
 ### Back
-Node.js
-Express
-npm
-MVC
-Express Validator
-RegExp
++Node.js
++Express
++npm
++MVC
++Express Validator
++RegExp
 
 ### DB 
-PostgreSQL - Sequelize
-MongoDB - Mongoose
++PostgreSQL - Sequelize
++MongoDB - Mongoose
 
 ### Front
-React
-Vite
-SASS
-SAP
-MaterialBase
++React
++Vite
++SASS
++AP
++MaterialBase
 
 ### Deployment
-Docker
++Docker
 
 # DESIGN
 ## Hi-Fi Prototype 
